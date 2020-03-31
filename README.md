@@ -13,4 +13,4 @@ For each datapoint containing the total number of deaths:
 
 The parameters necessary for the estimation can be set freely using the web frontend.
 
-<img height="500px" align="center" src="/docs/countries_by_feature.PNG">
+<img src="/docs/countries_by_feature.PNG">
