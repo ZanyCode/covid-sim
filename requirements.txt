@@ -1,0 +1,5 @@
+pandas
+pipetools
+requests
+plotly
+streamlit
