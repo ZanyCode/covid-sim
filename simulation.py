@@ -35,7 +35,9 @@ def generate_feature_deaths(df: pd.DataFrame, name: str):
 
 def generate_simulated_infections(df: pd.DataFrame, name: str):
     doubling_intervals = days_infection_to_death / infection_rate
-    simulated_infections = df[Cols.Deaths].apply(lambda x: x / (case_fatality_percent / 100) * pow(2, doubling_intervals))
+    new_deaths = df[Cols.Deaths][df[Cols.Deaths] > 0].diff().fillna(0.0)
+    new_infections = new_deaths.apply(lambda x: x / (case_fatality_percent / 100) * pow(2, doubling_intervals))
+    simulated_infections = new_infections.cumsum()
     df_feature = df[[Cols.LastUpdate, Cols.Country]]
     df_feature = df_feature.assign(**{Cols.Data: simulated_infections})
     return add_feature_col(df_feature, name)

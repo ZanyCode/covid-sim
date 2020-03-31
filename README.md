@@ -22,8 +22,10 @@ There are two views: "Compare Countries for Feature" allows the selection of a s
 "Compare Countries for Feature" allows the selection of a single feature and multiple countries, which are then displayed in the scatter chart.
 <img src="/docs/features_by_country.PNG">
  
-<h4>Data</h4>
-The data is retrieved from [Esri](https://www.esri.com/en-us/home). The most recent timeseries are retrieved on page load.
+<h4>Sources</h4>
+The data is retrieved from [Esri](https://www.esri.com/en-us/home) . The most recent timeseries are retrieved on page load.
+
+
 
 
 
