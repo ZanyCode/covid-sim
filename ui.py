@@ -9,7 +9,7 @@ import plotly.express as px
 import simulation
 from common import Cols
 from data import get_data
-from simulation import get_available_features, Feature
+from simulation import get_available_features, Feature, generate_simulated_infections
 
 this = sys.modules[__name__]
 use_log_scale = False
@@ -17,6 +17,7 @@ use_log_scale = False
 
 def run():
     df: DataFrame = get_data()
+    generate_simulated_infections(df, "")
     features = get_available_features()
 
     selected_view = st.sidebar.selectbox("View", get_views(), format_func=lambda view: view.name)
@@ -53,11 +54,11 @@ def view_features_by_country(df: pd.DataFrame, features: List[Feature]):
 
 def view_simulation_settings():
     simulation.case_fatality_percent = \
-        st.sidebar.number_input("Case Fatality (%)", min_value=0.0, max_value=100.0, value=simulation.case_fatality_percent)
+        st.sidebar.number_input("Case Fatality (%)", min_value=0.0, max_value=100.0, value=simulation.case_fatality_percent, key='casefatality')
     simulation.days_infection_to_death = \
-        st.sidebar.number_input("Days between Infection and Death", min_value=1, max_value=30, value=simulation.days_infection_to_death)
+        st.sidebar.number_input("Days between Infection and Death", min_value=1, max_value=100, value=simulation.days_infection_to_death, key='ttd')
     simulation.infection_rate = \
-        st.sidebar.number_input("Infection Rate (Days to Double Infections)", min_value=0.5, max_value=10.0, value=simulation.infection_rate)
+        st.sidebar.number_input("Infection Rate (Days to Double Infections)", min_value=0.5, max_value=100.0, value=simulation.infection_rate, key='ir')
     this.use_log_scale = st.sidebar.checkbox("Use Log Scaling", use_log_scale)
 
 
