@@ -13,4 +13,17 @@ For each datapoint containing the total number of deaths:
 
 The parameters necessary for the estimation can be set freely using the web frontend.
 
+
+<h4>Views</h4>
+There are two views: "Compare Countries for Feature" allows the selection of a single country and multiple features, which are the displayed as individual curves within the scatter chart. <br />
 <img src="/docs/countries_by_feature.PNG">
+<br/>
+
+"Compare Countries for Feature" allows the selection of a single feature and multiple countries, which are then displayed in the scatter chart.
+<img src="/docs/features_by_country.PNG">
+ 
+<h4>Data</h4>
+The data is retrieved from [Esri](https://www.esri.com/en-us/home). The most recent timeseries are retrieved on page load.
+
+
+
